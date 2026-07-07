@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<link rel="icon" type="image/svg+xml" href="/static/icon.svg">
+<title>中国仙桃-犇腾科技网</title>
+<link rel="stylesheet" href="/static/style.css">
+  <!-- 背景音乐 -->
+  <audio id="background-music" muted>
+    <source src="/static/cool.ogg" type="audio/ogg">
+    您的浏览器不支持音频元素。
+  </audio>
+<script language="JavaScript">
+step=0
+function flash_title()
+    {
+      step++
+      if (step==3) {step=1}
+      if (step==1) {document.title='★ ★中国仙桃-犇腾科技网★ ★'}
+      if (step==2) {document.title='☆ ☆中国仙桃-犇腾科技网☆ ☆'}
+      setTimeout("flash_title()",200);
+    }
+flash_title()
+
+// 变量来追踪播放次数
+  var playCount = 0;
+  var maxPlayCount = 1; // 设置循环次数为5次
+// 添加鼠标点击播放音频事件
+    window.addEventListener('click', function() {
+      var audio = document.getElementById('background-music');
+      audio.muted = false;  // 取消静音
+      audio.play();         // 播放音频
+    });
+ // 监听音频播放结束事件
+  document.getElementById('background-music').addEventListener('ended', function() {
+    playCount++;
+    if (playCount >= maxPlayCount) {
+      var audio = document.getElementById('background-music');
+      audio.pause();  // 停止播放
+      audio.currentTime = 0;  // 重置播放进度
+    } else {
+      var audio = document.getElementById('background-music');
+      audio.play(); // 播放下一次
+    }
+  });
+</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="menu-frame">
+    <div class="menu-head">
+      <h1 class="menu-title">犇腾科技网</h1>
+      <p id="text"></p>
+	<p>技术服务：178588@gmail.com</p>
+    </div>
+
+  <div class="menu-item">
+        <h3 class="menu-name"><a href="/static/fyh/index.htm" onclick="window.open(this.href,'','top=0,left=0,width=816,height=520,scrollbars=yes,resizable=no'); return false;">
+  浪漫烟花</a></h3>
+        <p class="menu-price">▶</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer><div class="heart-small"></div>&copy; 犇腾科技网（此域名出售：178588@gmail.com）</footer>
+<div class="time-display">
+  <div class="time-text" id="beijing-time"></div>
+</div>
+
+<div class="code-rain-container">
+  <canvas class="code-rain-canvas" id="codeRainCanvas"></canvas>
+  <div class="code-rain-filter"></div>
+</div>
+
+<script src="/static/index.js"></script>
+</body>
+</html>
